@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Velvet AI - All Platforms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FF6B9D;
+            letter-spacing: 2px;
+        }
+
+        .back-btn {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 107, 157, 0.1);
+            border-color: #FF6B9D;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            color: #FF6B9D;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.7;
+        }
+
+        .version-info {
+            background: rgba(255, 107, 157, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B9D, #C13584);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 157, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 107, 157, 0.05);
+            border-color: rgba(255, 107, 157, 0.3);
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+        }
+
+        .platform-icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        .download-card h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #FF6B9D;
+        }
+
+        .download-card p {
+            opacity: 0.7;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .download-primary {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #FF6B9D, #C13584);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .file-size {
+            font-size: 14px;
+            opacity: 0.5;
+            margin-top: 10px;
+        }
+
+        .requirements {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: left;
+            border: 1px solid rgba(255, 107, 157, 0.1);
+        }
+
+        .requirements-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #FF6B9D;
+        }
+
+        .changelog {
+            background: rgba(255, 107, 157, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            margin-top: 40px;
+        }
+
+        .changelog h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #FF6B9D;
+        }
+
+        .changelog-version {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .changelog-version:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .version-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF6B9D;
+        }
+
+        .version-date {
+            opacity: 0.5;
+            font-size: 14px;
+        }
+
+        .changelog-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .changelog-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .changelog-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FF6B9D;
+            font-weight: bold;
+        }
+
+        .update-notification {
+            background: rgba(255, 107, 157, 0.1);
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb1 {
+            width: 400px;
+            height: 400px;
+            background: #FF6B9D;
+            top: 20%;
+            right: 10%;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(-50px, 50px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .navbar {
+                padding: 20px;
+            }
+            
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg">
+        <div class="gradient-orb orb1"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">VELVET</div>
+        <a href="index.html" class="back-btn">← Back to Home</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Download Velvet AI</h1>
+            <p>Your intelligent companion awaits</p>
+        </div>
+
+        <div class="update-notification">
+            <strong>🎉 New Update Available!</strong> Version 1.5.1 is now live with enhanced features
+        </div>
+
+        <div class="version-info">
+            <div class="version-badge">Latest Version: v1.5.1</div>
+            <p>Released on November 2025</p>
+        </div>
+
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="platform-icon">📱</div>
+                <h2>Android</h2>
+                <p>Download Velvet AI for your Android device</p>
+                <button class="download-primary" onclick="downloadApp('android')">Download APK</button>
+                <a href="#" style="display: block; color: #FF6B9D; margin-top: 10px; opacity: 0.8; text-decoration: none;">Get it on Google Play →</a>
+                <div class="file-size">Size: 48 MB</div>
+                <div class="requirements">
+                    <div class="requirements-title">Requirements:</div>
+                    Android 8.0 or higher<br>
+                    2GB RAM minimum<br>
+                    100MB free storage
+                </div>
+            </div>
+
+            <div class="download-card">
+                <div class="platform-icon">🍎</div>
+                <h2>iOS</h2>
+                <p>Experience Velvet AI on your iPhone or iPad</p>
+                <button class="download-primary" onclick="downloadApp('ios')">Download from App Store</button>
+                <div class="file-size">Size: 55 MB</div>
+                <div class="requirements">
+                    <div class="requirements-title">Requirements:</div>
+                    iOS 14.0 or later<br>
+                    Compatible with iPhone, iPad<br>
+                    120MB free storage
+                </div>
+            </div>
+        <div class="changelog">
+            <h2>📋 What's New in v1.5.1</h2>
+            
+            <div class="changelog-version">
+                <div class="version-header">
+                    <span class="version-number">Version 1.5.1</span>
+                    <span class="version-date">November 2025</span>
+                </div>
+                <ul class="changelog-list">
+                    <li>Introduced "Design Companion" feature with full personality customization</li>
+                    <li>Added multiple relationship types: Girlfriend, Boyfriend, Wife, Husband, Best Friend, Secret Admirer</li>
+                    <li>New "Adult Depth" control with Normal, Medium, and High modes</li>
+                    <li>Enhanced personality & appearance customization options</li>
+                    <li>Push notifications for background messages</li>
+                    <li>AI Energy system with 15 RPM for smooth conversations</li>
+                    <li>Daily usage limit increased to 1500 messages</li>
+                    <li>Global support for 12+ countries including USA, India, UK, Japan, Korea, and more</li>
+                    <li>Bug fixes and performance improvements</li>
+                </ul>
+            </div>
+
+            <div class="changelog-version">
+                <div class="version-header">
+                    <span class="version-number">Version 1.4.8</span>
+                    <span class="version-date">October 2025</span>
+                </div>
+                <ul class="changelog-list">
+                    <li>Improved conversation context memory</li>
+                    <li>Fixed notification issues on certain devices</li>
+                    <li>Enhanced chat interface with better animations</li>
+                    <li>Added more language support options</li>
+                </ul>
+            </div>
+
+            <div class="changelog-version">
+                <div class="version-header">
+                    <span class="version-number">Version 1.4.0</span>
+                    <span class="version-date">September 2025</span>
+                </div>
+                <ul class="changelog-list">
+                    <li>Major UI redesign with dark theme</li>
+                    <li>Introduced AI companion creation system</li>
+                    <li>Added conversation history and chat management</li>
+                    <li>Performance optimizations for faster responses</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadApp(platform) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #FF6B9D, #C13584);
+                color: #fff;
+                padding: 20px 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+                z-index: 10000;
+                font-weight: bold;
+                animation: slideIn 0.5s ease-out;
+            `;
+            
+            const platformNames = {
+                android: 'Android',
+                ios: 'iOS',
+                windows: 'Windows',
+                mac: 'macOS'
+            };
+            
+            notification.textContent = `✓ Downloading Velvet AI for ${platformNames[platform]}...`;
+            document.body.appendChild(notification);
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideIn 0.5s ease-out reverse';
+                setTimeout(() => {
+                    notification.remove();
+                }, 500);
+            }, 3000);
+            
+            console.log('Downloading for platform:', platform);
+        }
+    </script>
+</body>
+</html>
