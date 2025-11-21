@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #E91E63;
+    letter-spacing: 3px;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: #E91E63;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    background: radial-gradient(ellipse at center, rgba(233, 30, 99, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.velvet-logo {
+    font-size: 90px;
+    font-weight: 900;
+    color: #E91E63;
+    letter-spacing: 12px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 60px rgba(233, 30, 99, 0.4);
+}
+
+.tagline {
+    font-size: 22px;
+    margin-bottom: 25px;
+    letter-spacing: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.5;
+    line-height: 1.8;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 60px;
+    background: linear-gradient(135deg, #E91E63, #AD1457);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.4s;
+    box-shadow: 0 10px 40px rgba(233, 30, 99, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(233, 30, 99, 0.5);
+}
+
+/* Policy Section */
+.policy-section {
+    padding: 80px 60px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a0a14 100%);
+}
+
+.policy-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.policy-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(233, 30, 99, 0.15);
+    border-radius: 24px;
+    padding: 50px;
+    backdrop-filter: blur(20px);
+}
+
+.policy-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.policy-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.policy-title {
+    color: #E91E63;
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.policy-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.policy-preview {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.read-more-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 14px 40px;
+    background: transparent;
+    border: 2px solid #E91E63;
+    color: #E91E63;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.read-more-btn:hover {
+    background: #E91E63;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Policy Modal */
+.policy-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.policy-modal-content {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 60px;
+    background: linear-gradient(135deg, #1a0a14 0%, #0a0a0a 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(233, 30, 99, 0.2);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(233, 30, 99, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.3);
+    color: #E91E63;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    background: #E91E63;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.policy-full-content {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.policy-full-content h3 {
+    color: #E91E63;
+    font-size: 24px;
+    margin: 30px 0 15px;
+    font-weight: 700;
+}
+
+.policy-full-content p {
+    margin-bottom: 20px;
+}
+
+.policy-full-content strong {
+    color: #E91E63;
+    font-weight: 600;
+}
+
+/* App Showcase */
+.app-showcase {
+    padding: 100px 60px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a0a14 100%);
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 70px;
+    color: #E91E63;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    max-width: 1300px;
+    margin: 60px auto 0;
+}
+
+.showcase-item {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 18px;
+    border: 1px solid rgba(233, 30, 99, 0.1);
+    transition: all 0.4s;
+}
+
+.showcase-item:hover {
+    border-color: rgba(233, 30, 99, 0.3);
+    transform: scale(1.03);
+}
+
+.showcase-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.showcase-item h3 {
+    color: #E91E63;
+    margin-bottom: 12px;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.showcase-item p {
+    opacity: 0.7;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Features Section */
+.features {
+    padding: 100px 60px;
+    background: #0a0a0a;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    padding: 45px;
+    border-radius: 20px;
+    transition: all 0.4s;
+    border: 1px solid rgba(233, 30, 99, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: rgba(233, 30, 99, 0.03);
+    border-color: rgba(233, 30, 99, 0.3);
+    box-shadow: 0 20px 60px rgba(233, 30, 99, 0.15);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #E91E63;
+    font-weight: 700;
+}
+
+.feature-card p {
+    opacity: 0.7;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Download Section */
+.download-section {
+    padding: 100px 60px;
+    text-align: center;
+    background: #0a0a0a;
+}
+
+.download-section h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #E91E63;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.version-badge {
+    display: inline-block;
+    background: rgba(233, 30, 99, 0.15);
+    color: #E91E63;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(233, 30, 99, 0.3);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 45px;
+    background: rgba(233, 30, 99, 0.08);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(233, 30, 99, 0.25);
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background: rgba(233, 30, 99, 0.15);
+    border-color: #E91E63;
+    transform: scale(1.05);
+}
+
+.download-icon {
+    font-size: 32px;
+}
+
+/* Footer */
+footer {
+    padding: 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.95);
+    border-top: 1px solid rgba(233, 30, 99, 0.1);
+}
+
+footer p {
+    opacity: 0.4;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Background Effects */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: float 25s infinite ease-in-out;
+}
+
+.orb1 {
+    width: 500px;
+    height: 500px;
+    background: #E91E63;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.orb2 {
+    width: 400px;
+    height: 400px;
+    background: #AD1457;
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 7s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(60px, -60px);
+    }
+    66% {
+        transform: translate(-40px, 40px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .velvet-logo {
+        font-size: 48px;
+        letter-spacing: 6px;
+    }
+    
+    .tagline {
+        font-size: 16px;
+        letter-spacing: 4px;
+    }
+    
+    .navbar {
+        padding: 20px 30px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .policy-section,
+    .features,
+    .app-showcase,
+    .download-section {
+        padding: 60px 30px;
+    }
+
+    .policy-card,
+    .policy-modal-content {
+        padding: 30px;
+    }
+
+    .section-title,
+    .policy-title {
+        font-size: 32px;
+    }
+}
+
